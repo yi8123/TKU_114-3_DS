@@ -4,7 +4,28 @@ public class GradeMethod {
         int englishScore = 77;
         int mathScore = 88;
 
-        int average = calculateAverage(javaScore, englishScore, mathScore);
-        
+        double average = calculateAverage(javaScore, englishScore, mathScore);
+
+        String grade = getGrade(average);
+
+        System.out.println("Average: " + average);
+        System.out.println("Grade: " + grade);
+    }
+    public static double calculateAverage(int javaScore, int englishScore, int mathScore){
+        int total = javaScore + englishScore + mathScore;
+        return total / 3.0;
+    }
+    public static String getGrade(double average){
+        if (average >= 90) {
+            return "A";
+        } else if (average >= 80) {
+            return "B";
+        } else if (average >= 70) {
+            return "C";
+        } else if (average >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
     }
 }
