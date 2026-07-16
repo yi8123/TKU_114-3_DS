@@ -4,7 +4,7 @@ public class Q01_ParkingFeeFix {
         
         for (int minutes : testMinutes) {
             int fee = calculateFee(minutes);
-            System.out.println("停車" + minutes + "分鐘,費用:" + fee + "元");
+            System.out.println("停車 " + minutes + " 分鐘, 費用 : " + fee + " 元");
         }
     }
 

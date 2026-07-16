@@ -26,7 +26,7 @@ public class Q09_MatrixReport {
         if (data == null || data.length == 0 || column < 0) {
             return -1;
         }
-        // 需確認每一列中是否有這一欄（避免不規則二維陣列鋸齒狀報錯）
+        
         int sum = 0;
         boolean hasColumn = false;
         for (int[] row : data) {
@@ -62,7 +62,7 @@ public class Q09_MatrixReport {
             for (int val : data[i]) {
                 currentSum += val;
             }
-            // 只在「大於」時更新，即可確保平手時保留索引較小的列
+
             if (currentSum > maxSum) {
                 maxSum = currentSum;
                 maxIndex = i;

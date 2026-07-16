@@ -7,7 +7,12 @@ public class Q03_AccessDecision {
         System.out.println(decideAccess(130, true, true, false));
     }
 
-    public static String decideAccess(int age, boolean member, boolean hasInvitation, boolean suspended) {
+    public static String decideAccess(
+        int age, 
+        boolean member, 
+        boolean hasInvitation, 
+        boolean suspended
+    ) {
         // 1. 年齡小於0或大於120，回傳 INVALID
         if (age < 0 || age > 120) {
             return "INVALID";

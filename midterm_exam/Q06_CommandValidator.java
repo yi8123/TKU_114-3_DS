@@ -17,8 +17,11 @@ public class Q06_CommandValidator {
         if (command == null) {
             return false;
         }
-        // 去除前後空白並轉為大寫比對
-        String trimmed = command.trim().toUpperCase();
-        return trimmed.equals("START") || trimmed.equals("STOP") || trimmed.equals("PAUSE");
+        
+        String cleaned = command.trim();
+
+        return cleaned.equalsIgnoreCase("START") 
+            || cleaned.equalsIgnoreCase("STOP") 
+            || cleaned.equalsIgnoreCase("PAUSE");
     }
 }

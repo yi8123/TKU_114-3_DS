@@ -7,12 +7,12 @@ public class Q12_BookingReport {
             new Q12_Booking("B004", "Dan", 1, 1200, true)
         };
 
-        System.out.println("已確認筆數:" + countConfirmed(bookings));
-        System.out.println("已確認收入:" + calculateConfirmedRevenue(bookings));
+        System.out.println("已確認筆數 : " + countConfirmed(bookings));
+        System.out.println("已確認收入 : " + calculateConfirmedRevenue(bookings));
         Q12_Booking found = findById(bookings, "b003");
-        System.out.println("搜尋結果:" + found);
+        System.out.println("搜尋結果 : " + found);
         Q12_Booking largest = findLargestConfirmed(bookings);
-        System.out.println("最高確認預約:" + largest);
+        System.out.println("最高確認預約 : " + largest);
     }
 
     public static int countConfirmed(Q12_Booking[] bookings) {
@@ -55,7 +55,6 @@ public class Q12_BookingReport {
         for (Q12_Booking b : bookings) {
             if (b != null && b.isConfirmed()) {
                 double currentPrice = b.getTotalPrice();
-                // 使用 > 而不是 >=，確保當最高金額平手時，回傳陣列中較前面的物件
                 if (currentPrice > maxPrice) {
                     maxPrice = currentPrice;
                     largest = b;

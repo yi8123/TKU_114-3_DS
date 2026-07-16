@@ -6,13 +6,15 @@ public class Q07_ArrayAudit {
 
     public static void main(String[] args) {
         int[] readings = {12, 71, 35, -4, 35, 22, 60, 9, 48, 61};
-        System.out.println("有效筆數:" + countValid(readings));
-        System.out.printf("有效平均:%.2f%n", averageValid(readings));
-        System.out.println("最後符合門檻的索引:" + findLastAtLeast(readings, TARGET));
+        
+        System.out.println("有效筆數 : " + countValid(readings));
+        System.out.printf("有效平均 : %.2f%n", averageValid(readings));
+        System.out.println("最後符合門檻的索引 : " + findLastAtLeast(readings, TARGET));
+        
         int[] cleaned = createCleanCopy(readings);
-        System.out.print("清理後資料:");
+        System.out.print("清理後資料 : ");
         printArray(cleaned);
-        System.out.print("原始資料:");
+        System.out.print("原始資料 : ");
         printArray(readings);
     }
 

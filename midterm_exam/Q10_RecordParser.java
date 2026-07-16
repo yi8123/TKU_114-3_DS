@@ -10,15 +10,15 @@ public class Q10_RecordParser {
         for (String record : records) {
             System.out.println(record + " -> " + calculateRecordTotal(record));
         }
-        System.out.println("合法筆數:" + countValidRecords(records));
-        System.out.println("總金額:" + calculateGrandTotal(records));
+        System.out.println("合法筆數 : " + countValidRecords(records));
+        System.out.println("總金額 : " + calculateGrandTotal(records));
     }
 
     public static boolean isValidRecord(String record) {
         if (record == null || record.trim().isEmpty()) {
             return false;
         }
-        // 使用 -1 以保留尾隨的空字串
+        
         String[] parts = record.split("\\|", -1);
         if (parts.length != 4) {
             return false;
