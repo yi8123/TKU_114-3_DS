@@ -1,19 +1,18 @@
 public class RectangleDemo {
-    public static void printResult(Rectangle rectangle) {
-        System.out.println(rectangle);
-        System.out.printf("面積：%.2f%n", rectangle.calculateArea());
-        System.out.printf("周長：%.2f%n", rectangle.calculatePerimeter());
-        System.out.println("正方形：" + rectangle.isSquare());
-        System.out.println();
-    }
-
     public static void main(String[] args) {
-        Rectangle first = new Rectangle(5, 3);
-        Rectangle second = new Rectangle(4, 4);
-        Rectangle third = new Rectangle(8.5, 2);
+        Rectangle[] rectangles = {
+            new Rectangle(5.0, 5.0),
+            new Rectangle(4.0, 7.5),
+            new Rectangle(-2.0, 3.0) // 測試不合法參數
+        };
 
-        printResult(first);
-        printResult(second);
-        printResult(third);
+        for (int i = 0; i < rectangles.length; i++) {
+            Rectangle r = rectangles[i];
+            System.out.println("--- 矩形 " + (i + 1) + " ---");
+            System.out.println(r);
+            System.out.println("面積: " + r.calculateArea());
+            System.out.println("周長: " + r.calculatePerimeter());
+            System.out.println("是否為正方形: " + (r.isSquare() ? "是" : "否"));
+        }
     }
 }
