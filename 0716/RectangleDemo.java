@@ -3,7 +3,7 @@ public class RectangleDemo {
         Rectangle[] rectangles = {
             new Rectangle(5.0, 5.0),
             new Rectangle(4.0, 7.5),
-            new Rectangle(-2.0, 3.0) // 測試不合法參數
+            new Rectangle(-2.0, 3.0) 
         };
 
         for (int i = 0; i < rectangles.length; i++) {

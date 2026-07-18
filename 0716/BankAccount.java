@@ -29,7 +29,6 @@ public class BankAccount {
         if (target == null || amount <= 0 || amount > this.balance) {
             return false;
         }
-        // 扣除目前帳戶並存入目標帳戶
         this.balance -= amount;
         target.deposit(amount);
         return true;
