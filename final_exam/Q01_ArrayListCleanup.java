@@ -7,12 +7,11 @@ public class Q01_ArrayListCleanup {
             Arrays.asList(72, 35, 28, 80, 41, 39, 90)
         );
         int removed = removeBelow(scores, 40);
-        System.out.println("移除筆數:" + removed);
-        System.out.println("保留資料:" + scores);
+        System.out.println("移除筆數 : " + removed);
+        System.out.println("保留資料 : " + scores);
     }
 
     public static int removeBelow(ArrayList<Integer> scores, int minimum) {
-        if (scores == null) return 0;
         int removed = 0;
         for (int index = 0; index < scores.size(); ) {
             if (scores.get(index) < minimum) {
