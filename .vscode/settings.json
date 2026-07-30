@@ -2,8 +2,6 @@
   "java.project.sourcePaths": [
     "week1_practice",
     "midterm_exam",
-    "0729",
-    "0728",
     "0723",
     "0722",
     "0721",
@@ -14,7 +12,7 @@
     "0708",
     "0707",
     "0702",
-    "0730"
+    "final_exam"
   ],
 
   "java.project.outputPath": "bin"
