@@ -1,90 +1,39 @@
 import java.util.ArrayList;
 
 public class OrderAlgorithms {
-    public static void mergeSortById(Order[] orders) {
-        Order[] temp = new Order[orders.length];
-        mergeSortById(orders, temp, 0, orders.length - 1);
-    }
-
-    private static void mergeSortById(
-        Order[] orders,
-        Order[] temp,
-        int left,
-        int right
-    ) {
-        if (left >= right) {
-            return;
-        }
+    // 依金額降冪的 Merge Sort
+    public static void mergeSortByAmountDesc(Order[] arr, int left, int right) {
+        if (left >= right) return;
         int mid = left + (right - left) / 2;
-        mergeSortById(orders, temp, left, mid);
-        mergeSortById(orders, temp, mid + 1, right);
-        merge(orders, temp, left, mid, right);
+        mergeSortByAmountDesc(arr, left, mid);
+        mergeSortByAmountDesc(arr, mid + 1, right);
+        merge(arr, left, mid, right);
     }
 
-    private static void merge(
-        Order[] orders,
-        Order[] temp,
-        int left,
-        int mid,
-        int right
-    ) {
-        int i = left;
-        int j = mid + 1;
-        int k = left;
-
+    private static void merge(Order[] arr, int left, int mid, int right) {
+        Order[] temp = new Order[right - left + 1];
+        int i = left, j = mid + 1, k = 0;
         while (i <= mid && j <= right) {
-            if (orders[i].getId().compareTo(
-                    orders[j].getId()) <= 0) {
-                temp[k++] = orders[i++];
+            // 降冪排序：金額大者放前面
+            if (arr[i].getAmount() >= arr[j].getAmount()) {
+                temp[k++] = arr[i++];
             } else {
-                temp[k++] = orders[j++];
+                temp[k++] = arr[j++];
             }
         }
-        while (i <= mid) {
-            temp[k++] = orders[i++];
-        }
-        while (j <= right) {
-            temp[k++] = orders[j++];
-        }
-        for (int index = left; index <= right; index++) {
-            orders[index] = temp[index];
-        }
+        while (i <= mid) temp[k++] = arr[i++];
+        while (j <= right) temp[k++] = arr[j++];
+        for (int m = 0; m < temp.length; m++) arr[left + m] = temp[m];
     }
 
-    public static int binarySearchById(
-        Order[] orders,
-        String targetId
-    ) {
-        int low = 0;
-        int high = orders.length - 1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            int comparison = targetId.compareTo(
-                orders[mid].getId()
-            );
-
-            if (comparison == 0) {
-                return mid;
-            } else if (comparison < 0) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
+    // 依顧客姓名搜尋全部訂單 (Sequential Search，因為姓名未排序且可能有多筆)
+    public static ArrayList<Order> searchByCustomerName(ArrayList<Order> list, String name) {
+        ArrayList<Order> result = new ArrayList<>();
+        for (Order o : list) {
+            if (o.getCustomerName().equalsIgnoreCase(name)) {
+                result.add(o);
             }
         }
-        return -1;
-    }
-
-    public static ArrayList<Order> findByCustomer(
-        ArrayList<Order> orders,
-        String customer
-    ) {
-        ArrayList<Order> results = new ArrayList<>();
-        for (Order order : orders) {
-            if (order.getCustomer().equalsIgnoreCase(customer)) {
-                results.add(order);
-            }
-        }
-        return results;
+        return result;
     }
 }

@@ -1,28 +1,20 @@
 public class Order {
-    private String id;
-    private String customer;
-    private int amount;
+    private String orderId;
+    private String customerName;
+    private double amount;
 
-    public Order(String id, String customer, int amount) {
-        this.id = id;
-        this.customer = customer;
+    public Order(String orderId, String customerName, double amount) {
+        this.orderId = orderId;
+        this.customerName = customerName;
         this.amount = amount;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getCustomer() {
-        return customer;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
+    public String getOrderId() { return orderId; }
+    public String getCustomerName() { return customerName; }
+    public double getAmount() { return amount; }
 
     @Override
     public String toString() {
-        return id + " " + customer + " $" + amount;
+        return String.format("訂單ID: %s | 顧客: %-5s | 金額: %6.1f", orderId, customerName, amount);
     }
 }
